@@ -241,10 +241,7 @@ class _FormalInterviewScreenState extends State<FormalInterviewScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Center(
-                child: BlocBuilder<SpeechRecognitionCubit, bool>(
-                    builder: (context, recognitionState) {
-                  if (recognitionState) {
-                    return BlocBuilder<SpeechTextCubit, String>(
+                child: BlocBuilder<SpeechTextCubit, String>(
                         builder: (context, textState) {
                       return Text(
                         textState.isEmpty
@@ -257,19 +254,7 @@ class _FormalInterviewScreenState extends State<FormalInterviewScreen> {
                             fontFamily: "robo"),
                         textAlign: TextAlign.center,
                       );
-                    });
-                  }
-
-                  return Text(
-                    "Your Interviewer is waiting!\nStart now to get your answers!",
-                    style: TextStyle(
-                        color: Colors.grey.shade800,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w800,
-                        fontFamily: "robo"),
-                    textAlign: TextAlign.center,
-                  );
-                }),
+                    }),
               )
             ],
           ),
